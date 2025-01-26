@@ -25,8 +25,8 @@ const rooms = new Map();
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "ankitpatle000000@gmail.com", 
-    pass: "Ankit0511@2001", 
+    user: "email", 
+    pass: "Password", 
   },
 });
 
