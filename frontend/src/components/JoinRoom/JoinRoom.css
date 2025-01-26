@@ -1,0 +1,245 @@
+/* JoinRoom.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Base styles for the join room container */
+.join-room-container {
+  background-color: #1a1a1a; /* Dark gray background */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: #ffffff; /* White text */
+  overflow: hidden; /* Hide overflow for animations */
+}
+
+/* Content layout */
+.join-room-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Max width for content */
+  margin: 0 auto; /* Center the content */
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Left section styling */
+.left-section {
+  width: 50%; /* Take up half the width */
+  padding: 20px;
+}
+
+.left-section h1 {
+  font-size: 2.5rem; /* Large heading */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 1rem;
+  color: #4dabf7; /* Light blue for heading */
+}
+
+/* Dynamic text animation */
+.dynamic-text {
+  font-size: 1.5rem;
+  color: #cccccc; /* Light gray for text */
+  display: flex;
+  align-items: center;
+}
+
+.language-list {
+  margin-left: 10px;
+  position: relative;
+  height: 2rem;
+ 
+}
+
+.language-list span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: slideText 12s infinite;
+}
+
+.language-list span:nth-child(1) {
+  animation-delay: 0s;
+}
+.language-list span:nth-child(2) {
+  animation-delay: 2.4s;
+}
+.language-list span:nth-child(3) {
+  animation-delay: 4.8s;
+}
+.language-list span:nth-child(4) {
+  animation-delay: 7.2s;
+}
+.language-list span:nth-child(5) {
+  animation-delay: 9.6s;
+}
+
+@keyframes slideText {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+/* Right section styling */
+.right-section {
+  width: 40%; /* Take up 40% of the width */
+  background-color: #262626; /* Slightly lighter gray for form background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Section toggle buttons */
+.section-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.section-toggle button {
+  flex: 1;
+  padding: 0.8rem;
+  background-color: #333333; /* Dark gray for buttons */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 5px; /* Add some spacing between buttons */
+}
+
+.section-toggle button.active {
+  background-color: #4dabf7; /* Light blue for active button */
+}
+
+.section-toggle button:hover {
+  background-color: #339af0; /* Darker blue on hover */
+}
+
+/* Form styling */
+.create-room-form,
+.join-room-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Spacing between elements */
+}
+
+.create-room-form h2,
+.join-room-form h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #4dabf7; /* Light blue for heading */
+}
+
+.create-room-form input,
+.join-room-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #333333; /* Dark gray for input background */
+  color: #ffffff; /* White text */
+}
+
+.create-room-form input::placeholder,
+.join-room-form input::placeholder {
+  color: #999999; /* Light gray for placeholder */
+}
+
+/* Room ID section in Create Room */
+.room-id-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.room-id-section input {
+  flex: 1;
+}
+
+.generate-room-id-text {
+  color: #4dabf7; /* Light blue for text */
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.generate-room-id-text:hover {
+  color: #339af0; /* Darker blue on hover */
+}
+
+/* Buttons */
+.create-room-form button,
+.join-room-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4dabf7; /* Light blue for button */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-room-form button:hover,
+.join-room-form button:hover {
+  background-color: #339af0; /* Darker blue on hover */
+}
+
+.invite-button {
+  width: 50%; /* Reduced width for invite button */
+  align-self: center; /* Center the button */
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .join-room-content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .left-section h1 {
+    font-size: 2rem; /* Smaller heading */
+  }
+
+  .dynamic-text {
+    font-size: 1.2rem; /* Smaller text */
+  }
+
+  .right-section {
+    padding: 1.5rem;
+  }
+}

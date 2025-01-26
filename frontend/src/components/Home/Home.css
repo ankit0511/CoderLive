@@ -1,0 +1,128 @@
+/* Home.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Base styles for the home container */
+.home-container {
+  background-color: #1a1a1a; /* Dark gray background */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: #ffffff; /* White text */
+  overflow: hidden; /* Hide overflow for animations */
+  position: relative;
+}
+
+/* Background animation */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #333333, #1a1a1a, #333333, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Coding-themed animation (falling code) */
+.home-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><text x="0" y="20" font-family="monospace" font-size="16" fill="rgba(255, 255, 255, 0.1)">{ }</text></svg>');
+  animation: fallingCode 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes fallingCode {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Home content styling */
+.home-content {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 1; /* Ensure content is above animations */
+}
+
+.home-content h1 {
+  font-size: 3rem; /* Large heading */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 1rem;
+  color: #ffd700; /* Light yellow for heading */
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #cccccc; /* Light gray for text */
+}
+
+.home-content .subtext {
+  font-size: 1rem;
+  color: #999999; /* Lighter gray for subtext */
+  margin-bottom: 2rem;
+}
+
+/* Join button styling */
+.join-button {
+  background-color: #ffd700; /* Light yellow background */
+  color: #000000; /* Black text */
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.join-button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #000000; /* Black text on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-content h1 {
+    font-size: 2.5rem; /* Smaller heading on smaller screens */
+  }
+
+  .home-content p {
+    font-size: 1rem; /* Smaller text on smaller screens */
+  }
+
+  .join-button {
+    padding: 0.6rem 1.5rem; /* Smaller button on smaller screens */
+    font-size: 1rem;
+  }
+}

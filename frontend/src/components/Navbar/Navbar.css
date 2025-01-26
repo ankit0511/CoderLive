@@ -1,0 +1,117 @@
+/* Navbar.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Base styles for the navbar */
+.navbar {
+  background-color: #000000; /* Black background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 0.8rem 2rem; /* Increased padding for top/bottom and left/right */
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+  width: 100%; /* Full width */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+/* Container for navbar content */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Space between logo and buttons */
+  align-items: center; /* Vertically center items */
+  max-width: 1400px; /* Increased max width for content */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Add some padding on the sides */
+}
+
+/* Logo styling */
+.navbar-logo {
+  font-size: 1.8rem; /* Larger font size for the logo */
+  font-weight: 600; /* Semi-bold text */
+  color: #FFD700; /* Light yellow color for the logo */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-logo:hover {
+  color: #ffffff; /* Change to white on hover */
+}
+
+/* Right-aligned section for buttons and user info */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Increased space between elements */
+}
+
+/* User info styling */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Increased space between icon, username, and button */
+}
+
+.user-icon {
+  color: #FFD700; /* Light yellow color for user icon */
+  font-size: 1.4rem; /* Larger icon size */
+}
+
+.username {
+  font-size: 1.1rem;
+  color: #ffffff; /* White color for username */
+  font-weight: 500; /* Medium font weight */
+}
+
+/* Button styling */
+.navbar-right button {
+  background-color: #FFD700; /* Light yellow background */
+  color: #000000; /* Black text */
+  border: none; /* Remove border */
+  padding: 0.6rem 1.2rem; /* Increased padding for button */
+  font-size: 1rem; /* Font size */
+  border-radius: 6px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
+  font-weight: 500; /* Medium font weight */
+}
+
+.navbar-right button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #000000; /* Black text on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Icon styling */
+.icon {
+  font-size: 1.2rem; /* Larger icon size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 1rem; /* Reduced padding on smaller screens */
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem; /* Smaller logo on smaller screens */
+  }
+
+  .navbar-right button {
+    padding: 0.5rem 1rem; /* Smaller button padding */
+    font-size: 0.9rem; /* Smaller font size */
+  }
+
+  .username {
+    font-size: 1rem; /* Smaller username text */
+  }
+
+  .user-icon {
+    font-size: 1.2rem; /* Smaller user icon */
+  }
+}
