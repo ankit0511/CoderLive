@@ -1,13 +1,18 @@
 import { createRoot } from 'react-dom/client';
 import { Auth0Provider } from '@auth0/auth0-react';
-import './index.css'
+import './index.css';
 import App from "./App.jsx";
+
 const root = createRoot(document.getElementById('root'));
 
+// Access the environment variables
+const domain = import.meta.env.VITE_API_KEY;
+const clientId = import.meta.env.VITE_API_SECRET;
+
 root.render(
-<Auth0Provider
-    domain="dev-3mm6r7oq8nuo3eus.us.auth0.com"
-    clientId="4DEyHWFo3gk6qKhP06VOJzdNMJNKyrRA"
+  <Auth0Provider
+    domain={domain}
+    clientId={clientId}
     authorizationParams={{
       redirect_uri: window.location.origin
     }}

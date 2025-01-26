@@ -6,7 +6,7 @@ import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa"; // Import ic
 const Navbar = () => {
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated,  } = useAuth0();
 
   return (
     <nav className="navbar">
