@@ -27,7 +27,7 @@ PairPro is a real-time collaborative IDE designed to streamline technical interv
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/pairpro.git
+   git clone https://github.com/ankit0511/CoderLive.git
 
 2. Navigate to the project directory:
     cd frontend
