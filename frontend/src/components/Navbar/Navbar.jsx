@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          CodeCollab
+           Pair Pro
         </Link>
 
         <div className="navbar-right">

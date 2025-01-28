@@ -19,7 +19,7 @@ const Home = () => {
     <div className="home-container">
       <Navbar />
       <div className="home-content">
-        <h1>Welcome to CodeCollab</h1>
+        <h1>Welcome to Pair Pro</h1>
         <p>Collaborate on code in real-time with your team.</p>
         <p className="subtext">
           Join rooms, share code, and work together seamlessly. Whether you're
