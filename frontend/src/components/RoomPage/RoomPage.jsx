@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react"; // Import Auth0 hook
+import { auth, googleAuthProvider, signInWithPopup } from "../../Firebase"; // Import Firebase auth
 import Sidebar from "../Sidebar/Sidebar";
 import Editor from "../Editor/Editor";
 import socket from "../../utils/socket";
@@ -11,7 +11,6 @@ const RoomPage = () => {
   const { roomId } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { isAuthenticated, loginWithRedirect } = useAuth0(); // Auth0 authentication state
 
   const userName = state?.userName || "Anonymous";
 
@@ -25,12 +24,16 @@ const RoomPage = () => {
 
   // Redirect to login if the user is not authenticated
   useEffect(() => {
-    if (!isAuthenticated) {
-      loginWithRedirect({
-        appState: { returnTo: `/join` }, 
-      });
+    if (!auth.currentUser) {
+      signInWithPopup(auth, googleAuthProvider)
+        .then(() => {
+          navigate(`/join`, { state: { userName: auth.currentUser.displayName } });
+        })
+        .catch((error) => {
+          console.error("Error signing in with Google:", error);
+        });
     }
-  }, [isAuthenticated, loginWithRedirect]);
+  }, [navigate]);
 
   // Fetch supported languages from the Piston API
   useEffect(() => {

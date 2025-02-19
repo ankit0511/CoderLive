@@ -1,12 +1,28 @@
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+import { auth, googleAuthProvider, signInWithPopup, signOut } from "../../firebase"; // Import Firebase auth
+import { useEffect, useState } from "react"; // Import useEffect and useState
 import "./Navbar.css";
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa"; // Import icons
 
 const Navbar = () => {
-  const { loginWithRedirect } = useAuth0();
-  const { logout } = useAuth0();
-  const { user, isAuthenticated,  } = useAuth0();
+  const [user, setUser] = useState(auth.currentUser); // Track the user state
+
+  useEffect(() => {
+    // Listen for auth state changes
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user); // Update the user state
+    });
+
+    return () => unsubscribe(); // Cleanup subscription
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -16,19 +32,19 @@ const Navbar = () => {
         </Link>
 
         <div className="navbar-right">
-          {isAuthenticated ? (
+          {user ? (
             <div className="user-info">
               <FaUser className="user-icon" /> {/* User icon */}
-              <span className="username">{user.name}</span> {/* Display username */}
+              <span className="username">{user.displayName}</span> {/* Display username */}
               <button
-                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                onClick={handleLogout}
                 className="logout-btn"
               >
                 <FaSignOutAlt className="icon" /> Log Out {/* Logout icon */}
               </button>
             </div>
           ) : (
-            <button onClick={() => loginWithRedirect()} className="login-btn">
+            <button onClick={() => signInWithPopup(auth, googleAuthProvider)} className="login-btn">
               <FaSignInAlt className="icon" /> Log In {/* Login icon */}
             </button>
           )}
